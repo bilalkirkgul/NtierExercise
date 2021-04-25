@@ -9,7 +9,8 @@ using System.Text;
 
 namespace Ntier.Core.DataAccess.EntityFramework
 {
-    class EFRepositoryBase<TEntity, TContext> : IEntityRepository<TEntity>
+    //DAL Repository'de işlem için public yapıldı
+    public class EFRepositoryBase<TEntity, TContext> : IEntityRepository<TEntity>
         where TEntity:class,IEntity
         where TContext:DbContext,new()
     {
@@ -39,19 +40,21 @@ namespace Ntier.Core.DataAccess.EntityFramework
             context.Entry(entity).State = EntityState.Deleted;
             return context.SaveChanges() > 0;
         }
-        public TEntity GetEntity(Expression<Func<TEntity, bool>> filter)
+        //Include işlemi guncellemesi yapıldı
+
+        public TEntity GetEntity(Expression<Func<TEntity, bool>> filter,params Expression<Func<TEntity,object>>[] includes)
         {
-            return context.Set<TEntity>().Where(filter).SingleOrDefault();
+            return context.Set<TEntity>().Where(filter).MyInclude(includes).SingleOrDefault();
         }
-        public ICollection<TEntity> GetAll(Expression<Func<TEntity, bool>> filter = null)
+        public ICollection<TEntity> GetAll(Expression<Func<TEntity, bool>> filter = null,params Expression<Func<TEntity,object>>[] includes)
         {
             if (filter==null)
             {
-                return context.Set<TEntity>().ToList();
+                return context.Set<TEntity>().MyInclude(includes).ToList();
             }
             else
             {
-                return context.Set<TEntity>().Where(filter).ToList();
+                return context.Set<TEntity>().Where(filter).MyInclude(includes).ToList();
             }
         }
 

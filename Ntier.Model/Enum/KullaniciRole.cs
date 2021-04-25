@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Ntier.Model.Enum
 {
-    enum KullaniciRole
+   public enum KullaniciRole
     {
         admin,
         user

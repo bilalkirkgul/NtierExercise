@@ -5,15 +5,15 @@ using System.Text;
 
 namespace Ntier.Model.Entities
 {
-   abstract class BaseEntity:IEntity
+  public abstract class BaseEntity
     {
         public BaseEntity()
         {
-            DateOfRegistration = DateTime.Now;
+            CreatedDate = DateTime.Now;
         }
         public int ID { get; set; }
         public bool IsActive { get; set; }
-        public DateTime DateOfRegistration { get; set; }
+        public DateTime CreatedDate { get; set; }
         
 
 

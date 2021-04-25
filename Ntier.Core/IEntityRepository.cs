@@ -14,9 +14,9 @@ namespace Ntier.Core
         bool Update(TEntity entity);
         bool Delete(TEntity entity);
        
-        TEntity GetEntity(Expression<Func<TEntity, bool>> filter);
+        TEntity GetEntity(Expression<Func<TEntity, bool>> filter,params Expression<Func<TEntity, object>>[] includes);
 
-        ICollection<TEntity> GetAll(Expression<Func<TEntity, bool>> filter = null);
+        ICollection<TEntity> GetAll(Expression<Func<TEntity, bool>> filter = null,params Expression<Func<TEntity,object>>[] includes);
 
     }
 }

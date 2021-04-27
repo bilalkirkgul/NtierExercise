@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Ntier.DAL.Abstract
 {
-    interface IUserDAL:IEntityRepository<User>
+   public interface IUserDAL:IEntityRepository<User>
     {
     }
 }

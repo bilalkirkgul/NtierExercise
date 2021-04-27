@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Ntier.DAL.Abstract
 {
-    interface INoteDAL:IEntityRepository<Note>
+   public interface INoteDAL:IEntityRepository<Note>
     {
     }
 }

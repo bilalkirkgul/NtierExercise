@@ -7,12 +7,12 @@ using System.Text;
 
 namespace Ntier.DAL
 {
-    class NtierExerciseDbContext:DbContext
+    class NtierExerciseDbContext : DbContext
     {
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server=localhost\\SQLEXPRESS01; Database = NtierExercise; uid = ****; pwd = ****");
+            optionsBuilder.UseSqlServer("Server=; Database = NtierExercise; uid = ****; pwd = ****");
             base.OnConfiguring(optionsBuilder);
         }
 
@@ -25,8 +25,11 @@ namespace Ntier.DAL
         {
             modelBuilder.ApplyConfiguration(new UserConfiguration());
             modelBuilder.ApplyConfiguration(new NoteConfiguration());
-             modelBuilder.ApplyConfiguration(new CategoryConfiguration());
+            modelBuilder.ApplyConfiguration(new CategoryConfiguration());
             base.OnModelCreating(modelBuilder);
         }
+
+
+
     }
 }

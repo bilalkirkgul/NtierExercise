@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Ntier.DAL.Abstract
 {
-    interface ICategoryDAL:IEntityRepository<Category>
+   public interface ICategoryDAL:IEntityRepository<Category>
     {
     }
 }

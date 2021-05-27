@@ -9,7 +9,7 @@ namespace Ntier.DAL
 {
     class NtierExerciseDbContext : DbContext
     {
-
+        //Tools-design-sql eklemesi yapıldı
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer("Server=; Database = NtierExercise; uid = ****; pwd = ****");
